@@ -2,7 +2,7 @@
 
 int main(){
     printf("Selection Sort");
-    int numbers[5] = {12,8,7,5,2};
+    int numbers[5] = {9,2,8,12,7};
     int temp = 0;
     int minIndex = 0;
 
