@@ -53,6 +53,45 @@ int findIndexToInsert(int n, int length){
     return index;
 }
 
+void delete(int n){
+    int index = findIndex(numbers, n, length);
+    if(index != -1){
+        // shift to right all elements 
+        for(int i = index; i < length; i++){
+            numbers[i] = numbers[i+1];
+        }
+        length = length -1;
+        printf("index found: %d", index);
+    }
+}
+
+int findIndex(int numbers[], int n, int length){
+    int low = 0,
+        high = length,
+        mid = 0;    
+    int times = 0;        
+    while(numbers[mid] != n){
+        mid = (int) (high + low) / 2;
+        if(low == mid || high == mid) return -1;       
+        if(numbers[mid] < n){
+            low = mid;
+        } else if(numbers[mid] > n){
+            high = mid;
+        }
+        times++;
+    }
+    printf("cycles: %d", times);
+    return mid;
+}
+
+void print(){
+    printf("\nPRINT ALL ELEMENTS\n");
+    for(int i =0; i <= length; i++){
+        printf("%d\n", numbers[i]);
+    }
+    printf("------");  
+}
+
 void main(){    
     orderedInsert(3);
     orderedInsert(2);
@@ -69,10 +108,9 @@ void main(){
     orderedInsert(44);   
     orderedInsert(1);   
 
-    printf("PRINT ALL ELEMENTS\n");
-    for(int i =0; i <= length; i++){
-        printf("%d\n", numbers[i]);
-    }
+    print();
 
-    printf("------");
+    delete(32);
+
+    print();
 }
