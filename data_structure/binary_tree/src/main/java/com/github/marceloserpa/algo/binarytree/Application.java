@@ -23,9 +23,9 @@ public class Application {
 		
 		System.out.println(bst.find(70).getData());
 		
-		bst.delete(70);
+		bst.delete(72);
 		
-		System.out.println(bst.find(70));
+		System.out.println(bst.find(70).getData());
 	}
 	
 }

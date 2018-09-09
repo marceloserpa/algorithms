@@ -48,6 +48,25 @@ public class BinarySearchTree {
 					parent.setRight(null);
 				}
 			}
+		} else if (current.getRight() == null) {
+			
+			if(current == root) {
+				root = current.getLeft();
+			} else if(isLeft) {
+				parent.setLeft(current.getLeft());
+			} else {
+				parent.setRight(current.getLeft());
+			}
+			
+		} else if (current.getLeft() == null) {
+			
+			if(current == root) {
+				root = current.getRight();
+			} else if(isLeft) {
+				parent.setLeft(current.getRight());
+			} else {
+				parent.setRight(current.getRight());
+			}		
 		}
 		
 	}
